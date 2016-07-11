@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#         -v ~/.PhpStorm2016.1:/home/developer/.PhpStorm2016.1 \
+
+docker run -it --rm \
+        -e DISPLAY=$DISPLAY \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -v ~/Projects:/workspace \
+        iainmckay/phpstorm:2016.1.2-php7

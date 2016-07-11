@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Check if we are on a tty to decide whether to allocate one
+if [ -t 1 ]; then
+    docker run --rm -u "$(id -u):$(id -g)" -t -i -v $(pwd):/workspace -w /workspace -p 45418 renamed/tern --port 45418 $@
+else
+    docker run --rm -u "$(id -u):$(id -g)"  -i -v $(pwd):/workspace -w /workspace -p 45418 renamed/tern --port 45418 $@
+fi

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Check if we are on a tty to decide whether to allocate one
+if [ -t 1 ]; then
+    docker run --rm -u "$(id -u):$(id -g)" -t -i -v $(pwd):/workspace -w /workspace renamed/phpmd $@
+else
+    # I've added the mount to /tmp so that phpmd works with emacs (emacs saves a file to /tmp and then checks that file)
+    docker run --rm -u "$(id -u):$(id -g)"  -i -v $(pwd):/workspace -v /tmp:/tmp -w /workspace renamed/phpmd $@
+fi

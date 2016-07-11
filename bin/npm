@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Check if we are on a tty to decide whether to allocate one
+if [ -t 1 ]; then
+    docker run --rm -t -i -u "$(id -u):$(id -g)" -v $(pwd):/$(pwd) -w /$(pwd) renamed/npm $@
+else
+    docker run --rm  -i -u "$(id -u):$(id -g)" -v $(pwd):/$(pwd) -w /$(pwd) renamed/npm $@
+fi

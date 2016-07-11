@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# docker run -i --rm -v $(pwd):/app -u "$(id -u):$(id -g)" -v ~/.ssh:/root/.ssh renamed/composer $@
+
+# http://marmelab.com/blog/2014/09/10/make-docker-command.html
+# We're mounting the ssh folder so that composer can have faster installs
+if [ -t 1 ]; then
+    docker run -it --rm -u "$(id -u):$(id -g)" -v $(pwd):/$(pwd) -w /$(pwd) -v ~/.ssh:/root/.ssh renamed/composer $@
+else
+    docker run -i --rm -u "$(id -u):$(id -g)" -v $(pwd):/$(pwd) -w /$(pwd) -v ~/.ssh:/root/.ssh renamed/composer $@
+fi

@@ -1,0 +1,33 @@
+* Docker Executables
+** Notes
+It might be useful to have a =base= dockerfiles folder where I will place for
+instance references to the most recent php versions.
+
+** Resources
+https://blog.jessfraz.com/post/getting-towards-real-sandbox-containers/
+https://blog.jessfraz.com/post/the-brutally-honest-guide-to-docker-graphdrivers/
+https://blog.jessfraz.com/post/runc-containers-on-the-desktop/
+https://blog.jessfraz.com/post/this-industry-is-fucked/
+https://blog.jessfraz.com/post/routing-traffic-through-tor-docker-container/
+https://blog.jessfraz.com/post/docker-containers-on-the-desktop/
+https://github.com/jfrazelle/binctr
+https://github.com/jfrazelle/dockerfiles/blob/master/slack/Dockerfile
+https://github.com/jfrazelle/dockerfiles/blob/master/bashrc
+https://github.com/jfrazelle/dockerfiles/blob/master/run.sh
+https://github.com/jfrazelle/dockerfiles/blob/master/build-all.sh
+https://www.infoq.com/articles/docker-executable-images
+
+** Examples
+*** Tern
+http://ternjs.net/doc/manual.html#emacs
+
+** Fish integration
+I could use fish' =--on-event fish_command_not_found= handler to automatically call a docker executable
+
+#+BEGIN_SRC fish
+fish_command_not_found_handler --on-event fish_command_not_found
+    echo do stuff
+end
+#+END_SRC
+
+http://fishshell.com/docs/current/index.html#event

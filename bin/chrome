@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# I initially got some errors with namespacing
+# https://blog.samcater.com/docker-arch-linux-and-user-namespaces/
+# https://github.com/jfrazelle/dockerfiles/issues/65#issuecomment-217214671
+
+# Note that at some point I got an error:
+# [1:1:0223/101236:ERROR:browser_main_loop.cc(210)] Gtk: cannot open display: unix:0.0
+# Doing some googling I found a solution:
+# https://github.com/jfrazelle/dockerfiles/issues/4
+# which was fixed by running `xhost local:root`
+
+docker run -d \
+   --memory 2gb \
+   --net host \
+   -v /etc/localtime:/etc/localtime:ro \
+   -v /tmp/.X11-unix:/tmp/.X11-unix \
+   -v $HOME/Downloads:/root/Downloads \
+   -v $HOME/Pictures:/root/Pictures \
+   -v $HOME/Torrents:/root/Torrents \
+   -v $HOME/.chrome:/data \
+   -e DISPLAY=unix$DISPLAY \
+   -v /dev/shm:/dev/shm \
+   -v /etc/hosts:/etc/hosts \
+   -u "$(id -u):$(id -g)" \
+   --device /dev/snd \
+   --device /dev/dri \
+   --device /dev/video0 \
+   --group-add audio \
+   --group-add video \
+   --security-opt seccomp:./../resources/chrome.json \
+   --name chrome \
+   jess/chrome --user-data-dir=/data --force-device-scale-factor=1 \
+   --proxy-server="$proxy" --host-resolver-rules="$map" "$args"
