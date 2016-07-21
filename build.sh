@@ -30,6 +30,9 @@ docker build -t renamed/jshint -f dockerfiles/js/jshint.Dockerfile .
 ## Shell
 docker build -t renamed/shellcheck -f dockerfiles/shell/shellcheck.Dockerfile .
 
+## Java
+docker build -t renamed/java -f dockerfiles/java/java.Dockerfile .
+
 ## Misc
 docker build -t renamed/drafter -f dockerfiles/guis/drafter.Dockerfile .
 
