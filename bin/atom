@@ -1,0 +1,11 @@
+#!/bin/sh
+
+docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix \
+      -v $HOME/.config/Atom/:/home/atom/ \
+      -e DISPLAY=unix$DISPLAY renamed/atom
+
+# -u "$(id -u):$(id -g)" \
+
+# /root/.config/Atom
+# /root/.proton
+# docker run --rm -it --entrypoint /bin/bash renamed/atom

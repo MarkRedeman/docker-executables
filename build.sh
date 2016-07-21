@@ -33,6 +33,9 @@ docker build -t renamed/shellcheck -f dockerfiles/shell/shellcheck.Dockerfile .
 ## Java
 docker build -t renamed/java -f dockerfiles/java/java.Dockerfile .
 
+## GUIS
+docker build -t renamed/atom -f dockerfiles/guis/atom.Dockerfile .
+
 ## Misc
 docker build -t renamed/drafter -f dockerfiles/guis/drafter.Dockerfile .
 
