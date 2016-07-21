@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -t 1 ]; then
+    docker run -i --rm -u "$(id -u):$(id -g)" --net host -v $(pwd):$(pwd) -w $(pwd) renamed/dredd $@
+else
+    docker run -i --rm -u "$(id -u):$(id -g)" --net host -v $(pwd):$(pwd) -w $(pwd) renamed/dredd $@
+fi

@@ -22,6 +22,10 @@ docker build -t renamed/composer -f dockerfiles/php/composer.Dockerfile .
 ## JS / NPM
 docker build -t renamed/npm -f dockerfiles/js/npm.Dockerfile .
 docker build -t renamed/tern -f dockerfiles/js/tern.Dockerfile .
+docker build -t renamed/dredd -f dockerfiles/js/dredd.Dockerfile .
+docker build -t renamed/eslint -f dockerfiles/js/eslint.Dockerfile .
+docker build -t renamed/js-beautify -f dockerfiles/js/js-beautify.Dockerfile .
+docker build -t renamed/jshint -f dockerfiles/js/jshint.Dockerfile .
 
 ## Shell
 docker build -t renamed/shellcheck -f dockerfiles/shell/shellcheck.Dockerfile .
