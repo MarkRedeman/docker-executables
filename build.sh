@@ -26,6 +26,9 @@ docker build -t renamed/tern -f dockerfiles/js/tern.Dockerfile .
 ## Shell
 docker build -t renamed/shellcheck -f dockerfiles/shell/shellcheck.Dockerfile .
 
+## Misc
+docker build -t renamed/drafter -f dockerfiles/guis/drafter.Dockerfile .
+
 
 
 # .composer.swp # .php.swp # Dockerfile.php # Dockerfile.phpx # asciinema # chrome # chrome.json # composer # exercism # npm # php # phpcbf # phpcs # phpmd.back # phpx # rofi-randr # shellcheck # spotify # tor-browser # zathura
